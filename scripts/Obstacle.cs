@@ -40,6 +40,8 @@ public class ObstaculerController : MonoBehaviour
                 float force = Random.Range(minForce, maxForce);
                 rb.AddForce(randomDirection * force);
 
+                rb.mass = size * 2;
+
     }
 
 
