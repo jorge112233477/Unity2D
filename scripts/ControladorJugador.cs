@@ -21,6 +21,18 @@ public class ControladorJugador : MonoBehaviour
         {
             Debug.Log("the left button is clicked");
              Debug.Log("the current mouse potision on the screen is: " + Mouse.current.position.ReadValue());
+              Vector3 posicionMundo = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+              Debug.Log("the current mouse potision in the world is: " + posicionMundo);
+
+              Vector2 dir = posicionMundo - gameObject.transform.position;
+
+              
+              Debug.Log("the direction to the mouse position is: " + dir);
+
+
+
+
+
 
         }
         
