@@ -3,15 +3,14 @@ using UnityEngine;
 using UnityEngine.InputSystem; 
 
 public class ControladorJugador : MonoBehaviour
+
 {
+    public Rigidbody2D rb;
     public float velocidad = 5f; 
-    private Rigidbody2D rb;
+
     private Vector2 direccionMovimiento;
 
-    void Start()
-    {
-        
-    }
+
 
     // Esta función detecta el nuevo sistema automáticamente
     void Update()
@@ -28,6 +27,11 @@ public class ControladorJugador : MonoBehaviour
 
               
               Debug.Log("the direction to the mouse position is: " + dir);
+              transform.up = dir; 
+              rb.AddForce(dir);
+
+            
+
 
 
 
