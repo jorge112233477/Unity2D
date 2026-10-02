@@ -10,25 +10,31 @@ public class ControladorJugador : MonoBehaviour
 
     private Vector2 direccionMovimiento;
 
+    [SerializeField] 
+    private float fuerzaSalto = 5f; // Fuerza del salto
+
 
 
     // Esta función detecta el nuevo sistema automáticamente
     void Update()
     {
-
+        
         if(Mouse.current.leftButton.isPressed)
         {
             Debug.Log("the left button is clicked");
              Debug.Log("the current mouse potision on the screen is: " + Mouse.current.position.ReadValue());
-              Vector3 posicionMundo = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+              Vector3 posicionMundo = Camera.main.ScreenToWorldPoint(Mouse.current.position.value);
               Debug.Log("the current mouse potision in the world is: " + posicionMundo);
 
-              Vector2 dir = posicionMundo - gameObject.transform.position;
+              Vector2 dir = (posicionMundo - gameObject.transform.position).normalized;
 
               
               Debug.Log("the direction to the mouse position is: " + dir);
               transform.up = dir; 
-              rb.AddForce(dir);
+              rb.AddForce(dir * fuerzaSalto);
+
+              
+              
 
             
 
@@ -40,6 +46,12 @@ public class ControladorJugador : MonoBehaviour
 
         }
         
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(gameObject);
     }
 
 
