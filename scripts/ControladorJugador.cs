@@ -1,6 +1,7 @@
 using UnityEngine;
 // Importamos el nuevo sistema de entrada de Unity
-using UnityEngine.InputSystem; 
+using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class ControladorJugador : MonoBehaviour
 
@@ -12,6 +13,14 @@ public class ControladorJugador : MonoBehaviour
 
     [SerializeField] 
     private float fuerzaSalto = 5f; // Fuerza del salto
+
+    private float elapsedTime = 0f; // Variable para almacenar el tiempo transcurrido
+    [SerializeField]
+
+    private UIDocument uiDocument;
+
+
+    private Label scoreLabel;
 
 
 
