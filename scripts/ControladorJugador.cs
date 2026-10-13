@@ -14,7 +14,7 @@ public class ControladorJugador : MonoBehaviour
     [SerializeField] 
     private float fuerzaSalto = 5f; // Fuerza del salto
 
-    private float elapsedTime = 0f; // Variable para almacenar el tiempo transcurrido
+    private float elapsedTime = 6f; // Variable para almacenar el tiempo transcurrido
     [SerializeField]
 
     private UIDocument uiDocument;
@@ -22,11 +22,25 @@ public class ControladorJugador : MonoBehaviour
 
     private Label scoreLabel;
 
+    private void Start()
+    {
+        // Obtener la referencia al Label del puntaje
+        scoreLabel = uiDocument.rootVisualElement.Q<Label>("ScoreLabel");
+        Mathf.FloorToInt(elapsedTime);
+    }
+
+    private void Update()
+    {
+        UpdateScoreLabel();
+        UpdateMovement();
+    }
+
 
 
     // Esta función detecta el nuevo sistema automáticamente
-    void Update()
+     private void UpdateMovement()
     {
+    
         
         if(Mouse.current.leftButton.isPressed)
         {
@@ -42,6 +56,8 @@ public class ControladorJugador : MonoBehaviour
               transform.up = dir; 
               rb.AddForce(dir * fuerzaSalto);
 
+
+
               
               
 
@@ -55,6 +71,12 @@ public class ControladorJugador : MonoBehaviour
 
         }
         
+    }
+
+    private void UpdateScoreLabel()
+    {
+        elapsedTime += Time.deltaTime; // Incrementar el tiempo transcurrido
+        scoreLabel.text = "score:  " + elapsedTime.ToString("F2");
     }
 
 
