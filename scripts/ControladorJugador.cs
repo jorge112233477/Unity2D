@@ -19,6 +19,9 @@ public class ControladorJugador : MonoBehaviour
 
     private UIDocument uiDocument;
 
+  [SerializeField]
+    private ParticleSystem explosionEffect;
+
 
     private Label scoreLabel;
 
@@ -82,7 +85,11 @@ public class ControladorJugador : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
+        //transform.position
+        
         Destroy(gameObject);
+        
     }
 
 
