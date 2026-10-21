@@ -87,7 +87,7 @@ public class ControladorJugador : MonoBehaviour
     {
 
         //transform.position
-        
+        Instantiate(explosionEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
         
     }
