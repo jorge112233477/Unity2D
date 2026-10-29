@@ -25,8 +25,13 @@ public class ControladorJugador : MonoBehaviour
 
     private Label scoreLabel;
 
+ [SerializeField]
+     private AudioSource audioSource;
+
     private void Start()
     {
+
+       
         // Obtener la referencia al Label del puntaje
         scoreLabel = uiDocument.rootVisualElement.Q<Label>("ScoreLabel");
         Mathf.FloorToInt(elapsedTime);
@@ -61,14 +66,7 @@ public class ControladorJugador : MonoBehaviour
 
 
 
-              
-              
-
-            
-
-
-
-
+        
 
 
 
@@ -85,7 +83,7 @@ public class ControladorJugador : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
+        audioSource.Play();
         //transform.position
         Instantiate(explosionEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);

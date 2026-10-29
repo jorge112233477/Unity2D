@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5630174355169262807}
   - component: {fileID: 3820116371306868926}
   - component: {fileID: 5599373575825421308}
-  - component: {fileID: 2079631218854077750}
+  - component: {fileID: -4357073918445752558}
   m_Layer: 0
   m_Name: frog_idle_0 (2)
   m_TagString: Untagged
@@ -168,7 +168,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2079631218854077750
+--- !u!114 &-4357073918445752558
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,5 +182,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ObstaculerController
   minSize: 0.3
   maxSize: 2
-  minForce: 10
-  maxForce: 20
+  minForce: 3
+  maxForce: 8
+  minTorque: 10
+  maxTorque: 20
+  impactEffectPrefab: {fileID: 1105721101722754788, guid: e35ad36608bcc9d4c9cdbaf9da74df25, type: 3}
