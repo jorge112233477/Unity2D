@@ -33,7 +33,14 @@ public class ObstaculerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (impactEffectPrefab == null) return;
+        AudioSource audioRana = collision.gameObject.GetComponent<AudioSource>();
+
+    if (audioRana != null && audioRana.clip != null)
+    {
+        audioRana.PlayOneShot(audioRana.clip);
+    }
+
+    if (impactEffectPrefab == null) return;
 
         // Si esta rana sacó un efecto hace muy poco, no saca otro
         if (Time.time - lastEffectTime < effectCooldown) return;

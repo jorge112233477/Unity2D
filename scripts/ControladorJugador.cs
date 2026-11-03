@@ -86,7 +86,8 @@ public class ControladorJugador : MonoBehaviour
         audioSource.Play();
         //transform.position
         Instantiate(explosionEffect, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        Destroy(gameObject, 0.3f);
+        
         
     }
 
