@@ -25,6 +25,8 @@ public class ControladorJugador : MonoBehaviour
 
     private Label scoreLabel;
 
+    private Button restartButton;   
+
  [SerializeField]
      private AudioSource audioSource;
 
@@ -34,6 +36,7 @@ public class ControladorJugador : MonoBehaviour
        
         // Obtener la referencia al Label del puntaje
         scoreLabel = uiDocument.rootVisualElement.Q<Label>("ScoreLabel");
+        restartButton = uiDocument.rootVisualElement.Q<Button>("RestartButton");
         Mathf.FloorToInt(elapsedTime);
     }
 
