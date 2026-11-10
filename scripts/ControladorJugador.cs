@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 // Importamos el nuevo sistema de entrada de Unity
 using UnityEngine.InputSystem;
@@ -36,8 +37,15 @@ public class ControladorJugador : MonoBehaviour
        
         // Obtener la referencia al Label del puntaje
         scoreLabel = uiDocument.rootVisualElement.Q<Label>("ScoreLabel");
-        restartButton = uiDocument.rootVisualElement.Q<Button>("RestartButton");
+        restartButton = uiDocument.rootVisualElement.Q<Button>("restartbutton");
+        restartButton.clicked += LoadScene(); 
         Mathf.FloorToInt(elapsedTime);
+    }
+
+    private Action LoadScene()
+    {
+        Debug.Log("Restart button clicked");
+        return null;
     }
 
     private void Update()
